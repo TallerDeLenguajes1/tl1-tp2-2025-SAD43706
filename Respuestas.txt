@@ -1,2 +1,4 @@
 ¿Puede ver el archivo tp2_1_2.c? ¿Por qué?
 No si estamos trabajando ramas distintas del codigo 
+¿Qué nota? 
+Todo se fusiono la rama Opcion_2 y la main 

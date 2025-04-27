@@ -12,5 +12,6 @@ void listarPCs(struct compu pcs[], int cantidad);
 void mostrarMasVieja(struct compu pcs[], int cantidad);
 void mostrarMasVeloz(struct compu pcs[], int cantidad);
 int main (){
-    
+    int numpcs=5;
+    pc *pcs=(pc*)malloc(numpcs*sizeof(pc));
 }

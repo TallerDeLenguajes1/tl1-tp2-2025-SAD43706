@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<string.h>
 struct compu 
 {
     int velocidad; // Velocidad de procesamiento en GHz (valor entre 1 y 3)
@@ -12,19 +13,36 @@ void listarPCs(struct compu pcs[], int cantidad);
 void mostrarMasVieja(struct compu pcs[], int cantidad);
 void mostrarMasVeloz(struct compu pcs[], int cantidad);
 int main (){
-    int numpcs=5,i,vel,aniox,cant_Nu,tipox;
+    int numpcs=5,i,vel,aniox,cant_Nu,tipox,indice;
     srand(time(NULL));
     char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core","Pentium"};
-    char *tipo_pro=&tipos[0];
+    char *tipo_pro;
     pc *pcs=(pc*)malloc(numpcs*sizeof(pc));
     for ( i = 0; i < 5; i++)
     {
         vel=rand() % 3+1;
         aniox=rand() % 10+2015;
         cant_Nu=rand () % 8+1;
-        tipox=rand () % 5;
-        pcs[i]=(pc){vel,aniox,cant_Nu,tipo_pro[tipox]};
+        indice=rand () % 6;
+        tipo_pro=tipos[indice];
+        pcs[i]=(pc){vel,aniox,cant_Nu,tipo_pro};
     }
+    listarPCs(pcs,numpcs);
+
+
+
     return 0;
 }
-
+void listarPCs(struct compu pcs[], int cantidad){
+    int i;
+    for ( i = 0; i < cantidad; i++)
+    {
+        printf("PROCEDOR NUMERO %i:\n",i);
+        printf("\nTIPO: \n %s",pcs[i].tipo_cpu);
+        printf("\nAÑO DE FABRICACION: \n %d",pcs[i].anio);
+        printf("\nCANTIDAD DE NUCLEOS: \n %d",pcs[i].cantidad_nucleos);
+        printf("\nVELOCIDAD EN GHz: \n %d",pcs[i].velocidad);
+        printf("\n-------\n");
+    }
+    
+}

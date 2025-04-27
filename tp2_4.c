@@ -28,7 +28,7 @@ int main (){
         pcs[i]=(pc){vel,aniox,cant_Nu,tipo_pro};
     }
     listarPCs(pcs,numpcs);
-
+    mostrarMasVieja(pcs,numpcs);
 
 
     return 0;
@@ -44,5 +44,25 @@ void listarPCs(struct compu pcs[], int cantidad){
         printf("\nVELOCIDAD EN GHz: \n %d",pcs[i].velocidad);
         printf("\n-------\n");
     }
+    
+}
+
+void mostrarMasVieja(struct compu pcs[], int cantidad){
+    int i,indice,chico=444444;
+    for ( i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio<chico)
+        {
+            indice=i;
+            chico=pcs[i].anio;
+        }
+        
+    }
+    printf("El Procesador mas viejo es el numero %i:\n",indice);
+    printf("\nTIPO: \n %s",pcs[indice].tipo_cpu);
+    printf("\nAÑO DE FABRICACION: \n %d",pcs[indice].anio);
+    printf("\nCANTIDAD DE NUCLEOS: \n %d",pcs[indice].cantidad_nucleos);
+    printf("\nVELOCIDAD EN GHz: \n %d",pcs[indice].velocidad);
+    printf("\n-------\n");
     
 }

@@ -30,7 +30,7 @@ int main (){
     listarPCs(pcs,numpcs);
     mostrarMasVieja(pcs,numpcs);
     mostrarMasVeloz(pcs,numpcs);
-    
+    free(pcs);
     return 0;
 }
 void listarPCs(struct compu pcs[], int cantidad){

@@ -12,16 +12,19 @@ void listarPCs(struct compu pcs[], int cantidad);
 void mostrarMasVieja(struct compu pcs[], int cantidad);
 void mostrarMasVeloz(struct compu pcs[], int cantidad);
 int main (){
-    int numpcs=5,i,vel,aniox,cant_Nu;
+    int numpcs=5,i,vel,aniox,cant_Nu,tipox;
     srand(time(NULL));
     char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core","Pentium"};
+    char *tipo_pro=&tipos[0];
     pc *pcs=(pc*)malloc(numpcs*sizeof(pc));
     for ( i = 0; i < 5; i++)
     {
         vel=rand() % 3+1;
         aniox=rand() % 10+2015;
         cant_Nu=rand () % 8+1;
-        pcs[i]=(pc){vel,aniox,cant_Nu,};
+        tipox=rand () % 5;
+        pcs[i]=(pc){vel,aniox,cant_Nu,tipo_pro[tipox]};
     }
-    
+    return 0;
 }
+
